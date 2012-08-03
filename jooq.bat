@@ -1,0 +1,1 @@
+mvn properties:read-project-properties jooq-codegen:generate
