@@ -24,7 +24,7 @@
 		<property name="location" value="file:${user.dir}/dev.properties"/>
     </bean>
      
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	<bean id="dataSourceAnalyze" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="org.postgresql.Driver" />
 		<property name="url" value="${collect_analyze.devdb.url}"/>
 		<property name="username" value="${collect_analyze.devdb.username}" />
@@ -32,12 +32,12 @@
 	</bean>
 	
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource"/>
+		<property name="dataSource" ref="dataSourceAnalyze"/>
 	</bean>
 	
 	
 	<bean id="factoryDao" class="org.openforis.idreporting.core.FactoryDao">
-		<property name="dataSource" ref="dataSource"/>
+		<property name="dataSource" ref="dataSourceAnalyze"/>
 	</bean>
  
 	
